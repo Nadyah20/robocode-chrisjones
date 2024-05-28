@@ -1,6 +1,8 @@
 package nadyahahmed;
 import robocode.Robot;
 import robocode.ScannedRobotEvent;
+
+import java.awt.Color;
 import java.util.Random;
 
 public class nadyahahmed extends Robot {
@@ -10,6 +12,7 @@ public class nadyahahmed extends Robot {
 
         //first, setup
         //handle spawn randomness
+        setBodyColor(Color.blue);
 
         while(true){
             // this code will run forever until you die
@@ -32,7 +35,8 @@ public class nadyahahmed extends Robot {
             
             turnLeft(randomLeft);
             back(randomNumTwo);
-            turnGunLeft(180);
+            turnRadarLeft(180);
+            
 
             //turnLeft(90);
             //turnRight(90);
