@@ -1,6 +1,7 @@
 package nadyahahmed;
 import robocode.Robot;
 import robocode.ScannedRobotEvent;
+import robocode.HitWallEvent;
 
 import java.awt.Color;
 import java.util.Random;
@@ -13,6 +14,7 @@ public class nadyahahmed extends Robot {
         //first, setup
         //handle spawn randomness
         setBodyColor(Color.blue);
+        setGunColor(Color.pink);
 
         while(true){
             // this code will run forever until you die
@@ -28,14 +30,19 @@ public class nadyahahmed extends Robot {
             Random randNumLeft = new Random();
             int randomLeft = randNumLeft.nextInt(270);
 
-
+            
             turnRight(randomRight);
             ahead(randomNum);
+            
+
             //maybe try using a random number generator variable for how much to move
             
             turnLeft(randomLeft);
             back(randomNumTwo);
-            turnRadarLeft(180);
+            turnGunLeft(180);
+
+           
+            
             
 
             //turnLeft(90);
@@ -61,8 +68,19 @@ public class nadyahahmed extends Robot {
 
     public void onScannedRobot(ScannedRobotEvent e){
         //this code will run when we see a robot on radar
+        
         fire(1);
     }
+    
+    public void onHitWall(HitWallEvent e){
+        Random random = new Random();
+        int randomDirection = random.nextInt(180);
+        turnRight(randomDirection);
+        ahead(2000);
+
+        
+    }
+
 
 
 
